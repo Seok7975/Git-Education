@@ -1,0 +1,26 @@
+1. c에 test 폴더 만들고, test 폴더를 선택한 상태에서 오른쪽 클릭 Git Bash Here 를  클릭한다.
+2. git을 타이핑하고 엔터를 친다.
+
+3. git config --global user.name "Hong Gildong"
+4. git config --global user.email hong@naver.com
+5. git config user.name
+6. git config user.email
+7. git config --listgg
+8. 소스트리 설치하기
+https://www.sourcetreeapp.com
+빗버킷 건너뛰기
+Mercurial 체크 해제
+
+앞서 설정한 이름과 이메일을 입력한 뒤 다음 클릭
+SSH 키를 키를 불러오시겠습니까? 아니오
+
+9. 상단의 Local 클릭
+상단의 Create를 클릭
+Create a repository에서 c에 hello-sourcetree를 만들고 선택한다.
+생성 클릭
+
+윈도우 탐색기에서 확인해 본다.
+.git 숨김 폴더가 있으면 잘 만들어 진거다.
+
+10. 깃허브 회원 가입하기
+https://github.com
