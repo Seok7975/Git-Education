@@ -1,0 +1,77 @@
+https://github.com/ 회원가입
+
+https://github.com/계정 이름
+
+원격저장소 만들기
+1. 우측 상단의 +를 클릭한 뒤 New repository를 클릭해 보세요.
+2. 여기에서 새로 만들 원격 저장소의 정보를 입력합니다.
+원격 저장소의 이름(Repository name)에는 test-repo를, 설명(Description)에는 My first github repository!를 입력했습니다. 그 아래에서는 Public으로 설정한 뒤 나머지 내용은 그대로 두고 Create repository를 클릭하면 원격 저장소가 생성됩니다.
+3. 여러분이 방금 만든 저장소 URL은 
+https://github.com/계정 이름/저장소 이름 
+형식으로 되어 있습니다. 이와 같은 URL로 특정 사용자의 저장소에 접근할 수 있다는 것도 알아두기 바랍니다.
+
+
+4. https://github.com/namhyung/uftrace
+위에 주소에 있는 것을 클론해보자.
+
+5. 원격저장소에 있는 test-repo를 클론해 보자.
+6. 로컬 저장소 test-repo를 수정해 봅시다. 문자 A가 담긴 a.txt 파일을 추가합니다.
+7. 이를 커밋해 보겠습니다. 커밋 메시지는 add a.txt로 하겠습니다.
+8. 원격 저장소에 푸시하자.
+9. 이번에는 a.txt 파일을 삭제하고, B가 저장된 b.txt 파일을 추가하고 커밋 하자.
+커밋 메시지는 delete a.txt and add b.txt로 하자.
+
+10. 깃허브에서 b.txt 파일 두 번째 줄에 
+This is written in Github
+라고 적습니다.
+그리고 커밋합니다.
+11. 그리고 로컬 저장소에서 원격 저장소의 변경 사항을 패치해 보자.
+12. main 브랜치를 origin/main 브랜치와 병합해보자.
+
+13. 원격 저장소 test-repo에 접속하자.
+c.txt 파일을 만들고, 안에는 This file is created in github를 작성해 보세요.
+커밋 메시지로 create c.txt in github를 작성하고 Commit new file을 클릭합니다.
+14. 로컬 저장소 test-repo로 돌아와 Pull 하자.
+
+15. 자신의 계정에 collaboration_이름으로 새 repository를 만든다.
+그리고 index.html을 다음 내용으로 만든다.
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>본인이름</li>
+    </ul>
+</body>
+</html>
+
+16. 조장의 collaboration_이름 을 포크(Fork)하기
+17. 로컬 저장소에 collaboration_이름 을 클론하기
+18. add_username 이라는 이름의 브랜치를 생성후 체크아웃.
+19. index.html 수정
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>조장이름</li>
+        <li>본인이름</li>
+    </ul>
+</body>
+</html>
+
+20. 수정후 커밋. 커밋 메시지는 add my username in index.html
+21. Push
+22. 풀 리퀘스트 보내기
+23. 조장 풀 리퀘스트를 병합.
+24. 역할바꿔서 해보기
