@@ -1,0 +1,5 @@
+1. 버추얼 박스 설치
+https://www.virtualbox.org/
+
+2. 로키 리눅스 설치
+https://rockylinux.org/ko
