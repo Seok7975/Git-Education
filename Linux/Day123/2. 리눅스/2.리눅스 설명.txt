@@ -1,0 +1,267 @@
+5장 파일 조작의 기본
+
+cd		홈 디렉터리 이동
+mkdir work	work 디렉터리 만들기
+ls -F		work 디렉터리 확인
+
+참고로 리눅스의 내부에서는 디렉터리와 파일을 동일한 존재로 다룹니다. 그래서 이미 존재하는 파일의 이름과 동일한 이름의 디렉터리를 만들 수는 없습니다.
+
+cd work		work 디렉터리로 이동	
+
+mkdir 명령어로 중첩된 디렉터리를 만들려고 할 때 중간 경로의 디렉터리가 존재하지 않으면 에러가 발생
+
+mkdir report/2021/05	중간 디렉터리가 없어서 에러
+mkdir -p report/2021/05	report부터 시작해서 2021과 05라는 디렉터리를 한 번에 만들 수 있다.
+
+ls -R	재귀적으로 디렉터리 안에 내용 보기
+
+파일 만들기
+touch <생성할 파일1> <생성할 파일2> ...
+
+touch 명령어는 내용이 없는 빈 파일을 생성
+
+touch newfile
+
+원래 touch 명령어는 파일의 타임스탬프를 갱신하기 위한 명령어이다. 이때 대상이 되는 파일이 존재하지 않으면 새롭게 파일을 만든다. 그래서 단순히 빈 파일을 만드는 용도로도 많이 사용된다.
+
+touch 명령어로 이미 존재하는 파일을 지정해도 내용이 지워지거나 하지는 않는다.
+
+rm과 rmdir: 파일과 디렉터리 삭제하기
+
+파일/디렉터리 삭제하기
+rm [옵션] <삭제할 파일1> <삭제할 파일2> ...
+
+touch file1 file2 file3		file1, file2, file3 파일 3개 만들기
+ls			리스트 확인
+rm file1 file2 file3		fire1, file2, file3 파일 3개 삭제하기
+ls			리스트 확인
+rm *.html			확장자가 html인 파일을 전부 삭제
+
+디렉터리 삭제하기
+mkdir dir1		dir1 디렉터리 만들기
+rm dir1			에러
+
+rm 명령어로 디렉터리를 지우려면 재귀적으로 디렉터리 트리를 삭제하는 옵션인 -r을 지정해야 한다.
+이때 대상이 되는 디렉터리와 그 안의 파일을 전부 지우므로 주의해야 한다.
+
+디렉터리를 지우면 그 안의 파일도 함께 삭제된다.
+
+touch dir1/file1 dir1/file2 dir1/file3	dir1 디렉터리 안에 file1, file2, file3 파일을 만든다.
+ls dir1				dir1 디렉터리 안의 내용물을 본다.
+rm -r dir1			dir1 디렉터리 안의 모든 내용을 삭제한다.
+ls dir1				dir1 디렉터리 안의 내용물을 본다.(삭제 되었으므로 볼 수 없다.)
+
+ctrl + l(엘) 또는 clear		화면 지우기
+
+삭제할 때 주의할 점
+윈도나 맥에서는 파일을 지우더라도 휴지통에 있어서 복구할 수 있다. 하지만 리눅스에서는 파일이 곧바로 지워진다.
+실행할 때 -i 옵션을 붙이면 확인 메시지가 출력된다.
+
+touch file1	file1 파일 만들기
+ls		리스트 출력
+rm -i file1		file1 파일 삭제할 때 옵션을 줘서 확인하고 삭제하기. y또는 Y를 입력하고 엔터
+ls		리스트 출력
+
+빈 디렉터리 삭제하기
+rmdir <디렉터리 이름>
+rmdir 명령어는 대상 디렉터리가 빈 디렉터리가 아니면 에러를 출력한다.
+
+mkdir dir1		dir1 디렉터리 만들기
+touch dir1/.hidden		dir1안에 .hidden 이라는 숨김 파일 만들기
+ls -a dir1			dir1안에 숨김 파일까지 모두 보기
+rmdir dir1		dir1 안에 숨김 파일이 있어서 삭제 되지 않는다.
+rm -r dir1		dir1 디렉터리와 디렉터리 안에 있는 모든 내용을 삭제하기
+ls			리스트 확인
+
+파일 내용 출력하기
+cat [옵션] <파일 이름>
+
+touch newfile		newfile 파일 만들기
+cat newfile		newfile 내용 출력하기
+
+touch 명령어로 만들었기 때문에 파일은 비어 있다. 그래서 아무것도 출력되지 않는다.
+
+cat /etc/crontab		/etc/crontab 출력하기
+
+참고 /etc/crontab 파일은 특정 명령어를 스케줄에 맞게 자동으로 실행하는 설정 파일이다.
+
+여러 파일 출력하기
+cat /etc/crontab /etc/host.conf	/etc/crontab /etc/host.conf 출력하기
+
+cat 명령어는 이처럼 파일 여러 개를 연결해 출력한다. 이는 명령어의 이름이 conCATenate(연결)인 이유이기도 하다. 하나 혹은 여러 개의 파일을 연결해서 출력하는 명령어가 cat이다.
+cat -n /etc/crontab		/etc/crontab 행번호랑 같이 출력하기
+
+cat 명령어는 인자로 파일이 지정되지 않으면 키보드 입력을 그대로 화면에 출력하는 동작을 수행한다. 이 상태에서 cat 명령어를 종료하려면 ctrl + d 를 입력한다.
+
+cat 명령어뿐만 아니라 리눅스에서 사용하는 많은 명령어가 입력 파일을 지정하지 않으면 키보드의 입력을 기다린다.
+
+less 명령어: 스크롤 표시하기
+
+less [옵션] <파일 이름>
+
+less /etc/bashrc
+
+less 명령어로 스크롤 조작하기
+
+명령어				내용
+Space, f, ctrl + v			한 화면 아래로 스크롤
+b, Meta + v			한 화면 위로 스크롤
+j, ctrl + n , Enter			한 행 아래로 스크롤
+k, ctrl + p				한 행 위로 스크롤
+q				 less 명령어 종료
+
+파일 내 검색
+
+less로 열려 있는 파일에서 / 입력하기
+
+/ 뒤에 검색하고 싶은 문자열을 입력하고 Enter를 누르면 된다.
+/etc		etc라는 문자열을 검색
+
+less로 문자열 검색 방법
+/문자열		문자열을 아래 방향으로 검색
+?문자열		문자열을 위 방향으로 검색
+n		다음 검색 결과로 이동
+N		이전 검색 결과로 이동
+q		종료
+
+파일/디렉터리 복사
+cp [옵션] <복사할 파일> ... <복사할 위치>
+
+touch file1	file1 만들기
+cp file1 file2	file1을 file2로 복사하기
+ls -F		리스트 확인
+
+mkdir dir1	dir1 디렉터리 만들기
+cp file1 dir1	dir1 디렉터리로 file1 복사
+ls dir1		dir1 디렉터리의 내용보기
+touch file3	file3 만들기
+mkdir dir2	dir2 디렉터리 만들기
+cp file1 file2 file3 dir2 	dir2 디렉터리로 file1 file2 file3 복사하기
+ls dir2		dir2 리스트 보기
+cp *.txt backupdir		확장자가 txt인 모든 파일 backupdir로 복사
+
+cp로 복사할 때 이미 같은 이름의 파일이 있으면 덮어쓴다.
+ls		리스트보기
+cp file1 file2	flie1을 file2로 복사
+
+cp 명령어가 덮어쓰기 전에 확인하도록 하려면 -i 옵션을 사용해야 한다. 그러면 cp 명령어가 덮어쓰기 전에 진행 여부를 확인한다. 이때 y 혹은 Y를 입력하면 덮어쓰게 된다.
+ls		리스트 보기
+cp -i file1 file2	fil1을 file2로 복사. file2파일이 존재한다면 덮어쓸지 아닐지를 물어보게 한다.
+
+cp 명령어로 디렉터리를 복사하려고 하면 에러가 발생한다.
+cp dir2 dir3	에러
+cp 명려어로 디렉터리를 복사하려면 재귀적으로 복사하도록 -r 옵션을 지정해야 한다.
+이때 dir3가 없으면 dir2의 내용이 모두 복사되어 dir3가 만들어진다. dir3 디렉터리가 이미 있는 경우라면 dir3 디렉터리 밑에 dir2라는 이름으로 복사된다.
+-r 옵션을 사용하면 원본 디렉터리 안의 파일과 디렉터리가 모두 재귀적으로 복사된다.
+
+ls -F		리스트 보기
+ls dir2		dir2안에 리스트 보기
+cp -r dir2 dir3	dir2 디렉터리안에 있는 내용을 dir3 디렉터리를 만들면서 복사하기
+ls dir3		dir3안에 리스트 보기
+
+파일/디렉터리 이동
+mv [옵션] <이동할 파일> ... <이동할 위치>
+
+mkdir mvtest	mvtest 디렉터리 만들기
+cd mvtest		mvtest로 이동
+touch file1	file1 만들기
+mv file1 file2	file1파일을 file2파일로 이름 바꾸기
+ls		리스트 보기
+mkdir dir1	dir1 디렉터리 만들기
+touch file1	file1 파일 만들기
+mv file1 dir1	file1을 dir1 디렉터리 안으로 옮기기
+ls dir1		dir1 안에 리스트 보기
+touch file1 file2 file3	file1 file2 file3 만들기
+mv file1 file2 file3 dir1	file1 file2 file3를 dir1 디렉터리로 옮기기
+ls dir1		dir1 안에 리스트 보기
+
+그리고 이동할 위치에 같은 이름의 파일이 있으면 덮었는 것도 cp 명령어와 동일하다. -i 옵션을 지정하면 덮어쓰기 전에 정말로 덮어쓸지 확인해 준다.
+
+touch file1 file2	file1, file2 파일 만들기
+mv -i file1 file2	file1 파일을 file2 파일로 이름 바꾸는데, 같은 파일이 있으면 덮어쓸지 이름 물어보기.
+mkdir dir2	dir2 디렉터리 만들기
+ls dir1		dir1 리스트 보기
+mv dir1 dir2	dir1을 dir2 디렉터리 안으로 이동
+ls dir2/dir1	dir2 안에 dir1 디렉터리의 파일 목록을 출력
+ls -R dir2		dir2 디렉터리와 그 안에 디렉터리 리스트 보기
+
+ln [옵션] <링크할 파일> <링크 이름>
+
+링크란?
+리눅스의 파일 시스템에서는 파일에 별명을 붙이는 것이 가능하다. 이를 링크라고 부르며 별명을 붙이는 것을 '링크를 생성한다'라고 한다.
+링크에는 하드 링크와 심볼릭 링크 두 종류가 있다. 보통 심볼릭 링크가 많이 사용되며 하드 링크가 필요한 경우는 많지 않다.
+파일에 별명을 붙이는 기능은 윈도의 바로가기나 맥의 alias와 비슷하다. 특히 심볼릭 링크가 이와 유사하다.
+
+하드 링크
+다음처럼 /etc/crontab을 file1에 복사한 뒤 file1에 대해 file2라는 이름의 하드 링크를 만든다.
+
+하드 링크 file2 만들기
+cp /etc/crontab file1	/etc/crontab을 file1이라는 이름으로 복사
+ls			리스트 보기
+ln file1 file2		file1의 하드 링크 file2 만들기
+ls			리스트 보기
+
+하드링크 file2에 접근하는 것은 file1에 접근하는 것과 동일하다.
+cat file2
+
+이처럼 cat으로 file2의 내용을 출력하면 file1의 내용이 출력된다. 물론, file1을 출력해도 file1의 내용이 출력된다. 즉, 하드 링크란 한 파일 원본에 이름을 여러 개 붙이는 기능이다.
+하드 링크로 만든 파일에 대해 어느 것이 원본이고 어느 것이 복사본인지 구분하지 않아도 된다. 왜냐하면 양쪽 다 원본 파일이기 때문이다.
+
+하드 링크 삭제하기
+rm file1		file1 삭제하기
+ls		리스트 보기
+cat file2		file2 내용 출력
+
+파일 자체는 모든 하드 링크가 없어져야 삭제된다.
+
+rm file2		file2 삭제하기
+ls		리스트 보기
+
+하드 링크는 한 파일에 이름을 여러 개 붙이는 기능입니다. 따라서 모든 이름이 없어져야 파일이 지워진다.
+
+심볼릭 링크
+디렉터리는 하드 링크할 수 없으며, 하드 링크는 서로 다른 디스크에 걸쳐서 만들 수 없다는 제한이 있다. 그런데 심볼릭 링크는 이런 제한이 없어 더 많이 사용된다.
+
+심볼릭 링크 file2 만들기
+cp /etc/crontab file1	/etc/crontab을 file1이라는 이름으로 복사
+ln -s file1 file2		file1의 심볼릭 링크 file2를 만든다.
+
+ls -l		리스트 자세히 보기
+cat file2		file2 내용보기
+
+심볼릭 링크란 원본 파일에 대한 정보가 담긴 작은 특수 파일이며 하드 링크와 달리 원본과 구별된다.
+심볼릭 링크 삭제하기
+심볼릭 링크는 rm 명령어로 지울 수 있다. 이때 원본에는 어떠한 영향도 주지 않는다.
+rm file2		심볼릭 링크 file2 삭제하기
+ls		리스트 보기
+
+심볼릭 링크를 지우지 않은 채 원본 파일을 지울 수도 있다. 그러면 심볼릭 링크가 깨진 상태가 된다.
+ln -s file1 file2	file1의 심볼릭 링크 file2를 만든다.
+ls -l		리스트 자세히 보기
+rm file1		file1 삭제
+ls -l		리스트 자세히 보기
+cat file2		file2 내용 출력하기
+
+링크가 유용한 경우
+
+긴 경로명을 짧게
+mkdir -p local/work/code/project/source	local/work/code/project/source 디렉터리를 만든다.
+ln -s local/work/project/source source		local/work/project/source의 심볼릭 링크 source를 만든다.
+cd source					source로 이동
+
+그러면 긴 경로명을 일일이 입력하지 않아도 쉽게 해당 경로에 접근할 수 있다.
+
+여러 버전의 프로그램이 있는 경우
+프로그램을 설치할 때 디렉터리 이름에 버전 정보를 붙여 여러 버전의 소프트웨어를 배치하는 경우가 있다. 
+다음은 여러 버전을 심볼릭 링크로 관리한 예이다.
+
+ls -l
+합계 8
+lrwxrwxrwx 1 ldk ldk      6 5월 15 10:13 latest -> v1.0.1
+drwxrwxr-x 2 ldk ldk 4096 5월 15 10:13 v1.0.0
+drwxrwxr-x 2 ldk ldk 4096 5월 15 10:13 v1.0.1
+
+위 예에서는 버전 1.0.0과 버전 1.0.1이 설치된 상황에서 latest라는 심볼릭 링크가 버전 1.0.1을 가리키고 있습니다. 
+소프트웨어를 사용할 때 v1.0.0이나 v1.0.1과 같이 각 버전의 경로를 직접 지정하지 않고 
+심볼릭 링크인 latest를 사용하면 링크에 연결된 버전을 사용할 수 있습니다.
+v1.0.0을 사용하고 싶다면 심볼릭 링크를 업데이트하면 됩니다.

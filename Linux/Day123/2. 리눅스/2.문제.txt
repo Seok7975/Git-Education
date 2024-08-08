@@ -1,0 +1,122 @@
+		홈 디렉터리 이동
+		work 디렉터리 만들기
+		work 디렉터리 확인
+		work 디렉터리로 이동
+		report디렉터리 하위에 2021 디렉터리 하위에 05 디렉터리 만들기(3개 디렉터리 한번에)
+		재귀적으로 디렉터리 안에 내용 보기
+		newfile 이라는 빈 파일 만들기
+		file1, file2, file3 파일 3개 만들기
+		리스트 확인
+		fire1, file2, file3 파일 3개 삭제하기
+		리스트 확인
+		확장자가 html인 파일을 전부 삭제
+		dir1 디렉터리 만들기
+rm dir1		에러
+		dir1 디렉터리 안에 file1, file2, file3 파일을 만든다.
+		dir1 디렉터리 안의 내용물을 본다.
+		dir1 디렉터리 안의 모든 내용을 삭제한다.(dir1 포함)
+		dir1 디렉터리 안의 내용물을 본다.(삭제 되었으므로 볼 수 없다.)
+		화면 지우기
+		file1 파일 만들기
+		리스트 출력
+		file1 파일 삭제할 때 옵션을 줘서 확인하고 삭제하기. y또는 Y를 입력하고 엔터
+		리스트 출력
+		dir1 디렉터리 만들기
+		dir1안에 .hidden 이라는 숨김 파일 만들기
+		dir1안에 숨김 파일까지 모두 보기
+rmdir dir1	dir1 안에 숨김 파일이 있어서 삭제 되지 않는다.
+		dir1 디렉터리와 디렉터리 안에 있는 모든 내용을 삭제하기
+		리스트 확인
+		newfile 파일 만들기
+		newfile 내용 출력하기
+		/etc/crontab 출력하기
+		/etc/crontab /etc/host.conf 출력하기
+		/etc/crontab 행번호랑 같이 출력하기
+		less 명령어로 /etc/bashrc 파일 출력하기
+
+less 명령어로 스크롤 조작하기
+
+명령어				내용
+			한 화면 아래로 스크롤
+			한 화면 위로 스크롤
+			한 행 아래로 스크롤
+			한 행 위로 스크롤
+			less 명령어 종료
+
+less로 문자열 검색 방법
+		문자열을 아래 방향으로 검색
+		문자열을 위 방향으로 검색
+		다음 검색 결과로 이동
+		이전 검색 결과로 이동
+		종료
+
+		file1 만들기
+		file1을 file2로 복사하기
+		리스트 확인
+
+		dir1 디렉터리 만들기
+		dir1 디렉터리로 file1 복사
+		dir1 디렉터리의 내용보기
+		file3 만들기
+		dir2 디렉터리 만들기
+	 	dir2 디렉터리로 file1 file2 file3 복사하기
+		dir2 리스트 보기
+		확장자가 txt인 모든 파일 backupdir로 복사
+		리스트보기
+		flie1을 file2로 복사
+		리스트 보기
+		fil1을 file2로 복사. file2파일이 존재한다면 덮어쓸지 아닐지를 물어보게 한다.
+		리스트 보기
+		dir2안에 리스트 보기
+		dir2 디렉터리안에 있는 내용을 dir3 디렉터리를 만들면서 복사하기
+		dir3안에 리스트 보기
+
+		mvtest 디렉터리 만들기
+		mvtest로 이동
+		file1 만들기
+		file1파일을 file2파일로 이름 바꾸기
+		리스트 보기
+		dir1 디렉터리 만들기
+		file1 파일 만들기
+		file1을 dir1 디렉터리 안으로 옮기기
+		dir1 안에 리스트 보기
+		file1 file2 file3 만들기
+		file1 file2 file3를 dir1 디렉터리로 옮기기
+		dir1 안에 리스트 보기
+
+		file1, file2 파일 만들기
+		file1 파일을 file2 파일로 이름 바꾸는데, 같은 파일이 있으면 덮어쓸지 이름 물어보기.
+		dir2 디렉터리 만들기
+		dir1 리스트 보기
+		dir1을 dir2 디렉터리 안으로 이동
+		dir2 안에 dir1 디렉터리의 파일 목록을 출력
+		dir2 디렉터리와 그 안에 디렉터리 리스트 보기
+
+		/etc/crontab을 file1이라는 이름으로 복사
+		리스트 보기
+		file1의 하드 링크 file2 만들기
+		리스트 보기
+		file2내용 출력하기
+
+		file1 삭제하기
+		리스트 보기
+		file2 내용 출력
+		file2 삭제하기
+		리스트 보기
+
+		/etc/crontab을 file1이라는 이름으로 복사
+		file1의 심볼릭 링크 file2를 만든다.
+		리스트 자세히 보기
+		file2 내용보기
+		심볼릭 링크 file2 삭제하기
+		리스트 보기
+
+		file1의 심볼릭 링크 file2를 만든다.
+		리스트 자세히 보기
+		file1 삭제
+		리스트 자세히 보기
+		file2 내용 출력하기
+
+		local/work/code/project/source 디렉터리를 만든다.
+		local/work/project/source의 심볼릭 링크 source를 만든다.
+		source로 이동

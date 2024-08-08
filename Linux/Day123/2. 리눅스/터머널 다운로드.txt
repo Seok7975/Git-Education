@@ -1,0 +1,8 @@
+putty 다운로드
+https://www.putty.org/
+
+
+putty 다운(가상 터미널)
+
+host name에
+192.168.137.10 넣고 save
